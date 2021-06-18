@@ -13,6 +13,11 @@
       - [Generalized Rule of Sum](#generalized-rule-of-sum)
       - [Recursive Counting: Number of Paths](#recursive-counting-number-of-paths)
       - [Rule of Product](#rule-of-product)
+      - [Number of Tuples](#number-of-tuples)
+      - [Set Language for Tuples](#set-language-for-tuples)
+      - [Licence Plates](#licence-plates)
+      - [Tuples with Restrictions](#tuples-with-restrictions)
+      - [Permutations](#permutations)
 
 ### Basic Combinatorics
 
@@ -213,3 +218,87 @@ for _ in range(7):
 - If we run this code, how many times the phrase 'Hello world!' will be printed? Try to answer without actually running the code..
 
 **Answer**: (`(4 * 4)` `+` `(7 * 3)`) => (`16` `+` `21`) => `37` 
+
+#### Number of Tuples
+
+**Number of Passwords**:
+
+How many different 5-symbol passwords can we create using lower case Latin letters only? (the size of the alphabet is 26)
+
+**Answer**: 26 * 26 * 26 * 26 * 26 = `11 881 376`
+
+> Suppose we have a set of `𝑛` symbols. How many different **sequences** of length `𝑘` we can form out of these symbols?
+
+These **sequences** are usually called **tuples**.
+
+- There are `𝑛` possibilities to pick the first letter.
+- Each next letter multiplies the number of sequences
+by `𝑛`.
+- Thus the answer is a product of `𝑛` by itself `𝑘` times, that
+is `𝑛^𝑘`
+
+#### Set Language for Tuples
+
+![images](images/17.png)
+![images](images/18.png)
+![images](images/19.png)
+
+#### Licence Plates
+
+![images](images/20.png)
+
+#### Tuples with Restrictions
+
+![images](images/21.png)
+
+#### Permutations 
+
+**Problem**:
+
+Suppose we have a set of `𝑛` **symbols**. How many different **sequences** of length `𝑘` we can form out of these symbols if we are not allowed to use the same symbol **twice**?
+
+- Tuples of length `𝑘` without repetitions are called **𝑘-permutations**.
+- Observe that if `𝑛 < 𝑘`, then there are `no` 𝑘-permutations: there are simply not enough different letters.
+
+- So it is enough to solve the problem for the case `𝑘 ≤ 𝑛`.
+
+![images](images/22.png)
+![images](images/23.png)
+
+```py
+# Tuples
+
+# Number of Passwords
+# How many different 5-symbol passwords can we create using lower case Latin letters only? (the size of the alphabet is 26)
+
+def no_of_passwords(k=0):
+    """
+        All are lowercase english alphabet. So for each position we have 26 possibilities.  
+    
+        length_of_passwords = 5
+        each_position_no_of_possibilities = 26
+    """
+    n = 26
+    k = 5
+
+    return n**k
+
+def cartesian_products(A, B):
+    cross_product = []
+
+    for x in A:
+        for y in B:
+            cross_product.append((x, y))
+    
+    return cross_product
+ 
+def number_with_exactly_one_7_digits(n = 0):
+    import math
+    return math.factorial(n) 
+
+if __name__ == "__main__":
+    print(no_of_passwords(k=5)) # 11881376
+    print(cartesian_products(A={1,2,3}, B={2,3,4}))
+    # [(1, 2), (1, 3), (1, 4), (2, 2), (2, 3), (2, 4), (3, 2), (3, 3), (3, 4)]
+    print(number_with_exactly_one_7_digits(n=10))# 3628800
+```
