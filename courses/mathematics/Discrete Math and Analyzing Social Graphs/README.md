@@ -18,6 +18,8 @@
       - [Licence Plates](#licence-plates)
       - [Tuples with Restrictions](#tuples-with-restrictions)
       - [Permutations](#permutations)
+      - [Combinatorics](#combinatorics)
+    - [Binomial Theorem](#binomial-theorem)
 
 ### Basic Combinatorics
 
@@ -302,3 +304,110 @@ if __name__ == "__main__":
     # [(1, 2), (1, 3), (1, 4), (2, 2), (2, 3), (2, 4), (3, 2), (3, 3), (3, 4)]
     print(number_with_exactly_one_7_digits(n=10))# 3628800
 ```
+
+#### Combinatorics
+
+**Ranking Problems**:
+Suppose we have `𝑛` texts and we need to `rank` them by relevance. One of the standard approaches requires to `compare each text with each other`. How many **comparisons** we need to make?
+
+```py
+def ranking(n: int) -> int:
+    """
+        Compare each text with each other.
+        Example: Suppose we have 3 text. 'a', 'b', and 'c'.
+        Our solution gives us 3 * 2 = 6 comparisons, because we compare
+        each text to other. But if we further review our solutions we see we count same or doing same comparison twice!
+
+        HOW WE SOLVE!!!
+
+        Solve: If we counted each objects k times, just divide the result k times.
+    """
+    return n * (n - 1) /  2
+
+```
+
+![images](images/24.png)
+![images](images/25.png)
+![images](images/26.png)
+![images](images/27.png)
+
+> If we counted each objects `k` times, just **divide** the result by `k`.
+
+**Calculate Permutations**:
+
+
+```py
+def combination(n: str, k: int) -> int:
+    """
+        Return the combination of (n, k) -> 'n choose k'
+    """
+    # return math.factorial(n) / (math.factorial(k) * math.math.factorial(n - k))
+    return list(itertools.combinations(n, k))
+```
+
+**Road Trip Problems**:
+
+You are planning a road trip. You have `5` friends, but you can fit only `3` of them in your car. How many ways do you have to do it?
+
+![images](images/28.png)
+
+![images](images/29.png)
+
+
+```py
+def road_trip(friends: list, k: int):
+    """
+        friends: str, list or iterables
+        k: int, choose number
+        return combination of len(friends) and k or "n choose k"
+    """
+    return list(itertools.combinations(friends, k))
+
+friends = ['mahin', 'bijoy', 'mony', 'nahid', 'hassan']
+k = 3
+print(road_trip(friends, k))
+"""
+[('mahin', 'bijoy', 'mony'),
+ ('mahin', 'bijoy', 'nahid'),
+ ('mahin', 'bijoy', 'hassan'),
+ ('mahin', 'mony', 'nahid'),
+ ('mahin', 'mony', 'hassan'),
+ ('mahin', 'nahid', 'hassan'),
+ ('bijoy', 'mony', 'nahid'),
+ ('bijoy', 'mony', 'hassan'),
+ ('bijoy', 'nahid', 'hassan'),
+ ('mony', 'nahid', 'hassan')]
+"""
+```
+
+**Usages of Combination**:
+
+![images](images/30.png)
+![images](images/31.png)
+
+**Quiz**:
+
+- Suppose we have a dataset of size `12` and we want to construct a subset of data of size `6`. How many ways do we have to do it?
+
+```py
+import itertools
+
+def split_dataset(n: list, k: int):
+    """
+        We need to unordered tuple for this solution. Because 2 files in 
+        different position don't make new subset of dataset. 
+    12C6 = 12! / (6! * (12-6)!) = 924
+    """
+    return len(list(itertools.combinations(n, k)))
+split_dataset(range(1, 13), 6) # 924
+```
+
+- Suppose we have a dataset of size `12` and we want to split it into `two subsets` of data of size `6` (and it does not matter, which of the subsets is the `first and which is the second`). How many ways do we have to do it?
+
+```py
+924 * 2
+```
+
+**Note**: [Learn Permutation and Combination from Onnorokom Pathshala](https://www.youtube.com/watch?v=VTZHMZ3MmfA&list=PLxSt9YDBipm4wM6KZHte2w68WUwgRWY5H)
+
+### Binomial Theorem
