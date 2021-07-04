@@ -19,7 +19,8 @@
       - [Tuples with Restrictions](#tuples-with-restrictions)
       - [Permutations](#permutations)
       - [Combinatorics](#combinatorics)
-    - [Binomial Theorem](#binomial-theorem)
+    - [Advanced Combinatorics](#advanced-combinatorics)
+      - [Binomial Theorem](#binomial-theorem)
 
 ### Basic Combinatorics
 
@@ -410,4 +411,6 @@ split_dataset(range(1, 13), 6) # 924
 
 **Note**: [Learn Permutation and Combination from Onnorokom Pathshala](https://www.youtube.com/watch?v=VTZHMZ3MmfA&list=PLxSt9YDBipm4wM6KZHte2w68WUwgRWY5H)
 
-### Binomial Theorem
+### Advanced Combinatorics
+
+#### Binomial Theorem
