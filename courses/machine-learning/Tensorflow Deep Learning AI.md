@@ -1,13 +1,16 @@
 # Tensorflow for Deep Learning, Machine Learning and AI
 
-## Table of Contents
-
 - [Tensorflow for Deep Learning, Machine Learning and AI](#tensorflow-for-deep-learning-machine-learning-and-ai)
-  - [Table of Contents](#table-of-contents)
-    - [Simple Linear Neural Network](#simple-linear-neural-network)
-    - [Simple Neural Network (House Price)](#simple-neural-network-house-price)
+  - [Before Start](#before-start)
+  - [Simple Neural Network (House Price)](#simple-neural-network-house-price)
 
-### Simple Linear Neural Network
+## Before Start
+
+```bash
+$ pip3 install tensorflow
+```
+
+## Simple Linear Neural Network
 
 ```py
 # Module
@@ -30,14 +33,14 @@ model.fit(xs, ys, epochs=500)
 for i in range(-5, 10):
     print(model.predict([float(i)]))
 
-print(model.get_weights()) 
+print(model.get_weights())
 # [array([[1.997836]], dtype=float32), array([-0.9932913], dtype=float32)]
 ```
 
-### Simple Neural Network (House Price)
+## Simple Neural Network (House Price)
 
 ```py
-import tensorflow as tf 
+import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
 import math

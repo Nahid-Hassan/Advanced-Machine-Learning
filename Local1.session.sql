@@ -1,0 +1,1 @@
+SELECT * FROM university_db.instructor WHERE salary >= 90000;
