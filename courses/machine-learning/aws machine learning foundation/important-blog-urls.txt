@@ -1,0 +1,9 @@
+https://aws.amazon.com/blogs/machine-learning/protecting-people-through-virtual-boundaries-computer-vision/
+
+https://github.com/udacity/DSND_Term2
+
+https://machinelearningmastery.com/ridge-regression-with-python/
+
+https://aws.amazon.com/blogs/machine-learning/create-a-model-for-predicting-orthopedic-pathology-using-amazon-sagemaker/
+
+
